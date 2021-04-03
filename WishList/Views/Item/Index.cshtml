@@ -1,11 +1,33 @@
 ﻿@model List<WishList.Models.Item>
 
-<h1>Wishlist</h1>
-<a asp-action="create" asp-controller="Item">Add Item</a>
+@{
+    ViewData["Title"] = "Adding Items";
+}
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>@item.Description <a asp-action="delete" asp-route-id="@item.Id">delete</a></li>
-    }
-</ul>
+
+<div class="display-5 py-5">Wishlist</div>
+
+
+<table class="table" style="color:wheat;">
+
+    <thead>
+        <tr>
+            <th>Wishs</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Description</td>
+                <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Item" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<a class="btn btn-primary" asp-controller="Item" asp-action="Create">Add Item</a>

@@ -1,1 +1,15 @@
-﻿<h1>Welcome User</h1>
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<p class="display-5 ">What Is a Wishlist?</p>
+
+
+<div class="w-100 p-3">
+    A wishlist allows shoppers to create personalized collections of products they want to buy and save them in their user account for future reference. Wishlists signify a customer’s interest in a product without an immediate intent to purchase.
+</div>
+
+
+<div class="w-100 p-3">
+    <a class="btn btn-primary" asp-controller="Item" asp-action="Create">Create Your Own WishList Now</a>
+</div>
