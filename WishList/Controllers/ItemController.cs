@@ -31,9 +31,11 @@ namespace WishList.Controllers
         [HttpPost]
         public IActionResult Create(Item item)
         {
+            if (!ModelState.IsValid)
+                return View(item);
+
             _context.Items.Add(item);
             _context.SaveChanges();
-
             return RedirectToAction("Index");
         }
 
